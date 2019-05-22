@@ -1,0 +1,23 @@
+﻿@model ETicaret.Areas.Admin.Model.CategoriesModel
+@{
+    ViewData["Title"] = "Liste";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Kategoriler</h1>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model.CategoryList)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+        </tr>
+    }
+</table>
+<form asp-contoller="/Admin/Categories" action="Ekle" method="get">
+    <input type="submit" value="Kategori Ekle" class="btn-success btn-group-lg" />
+</form>

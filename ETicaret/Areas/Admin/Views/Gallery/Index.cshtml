@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@if (SignInManager.IsSignedIn(User))
+{
+<h1 style="color:dimgray">
+    Sevgili @UserManager.GetUserName(User) HoşGeldin:)
+</h1>
+}
+
+

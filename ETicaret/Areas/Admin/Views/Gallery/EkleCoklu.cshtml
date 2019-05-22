@@ -1,0 +1,30 @@
+﻿@model ETicaret.Areas.Admin.Model.ProductModel
+@{
+    ViewData["Title"] = "EkleCoklu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>EkleCoklu</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="/Admin/Gallery" asp-action="EkleCoklu" method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.Products.ProductId)
+
+
+            <div class="form-group">
+                <div class="form-control">
+                    <p>Dosya Seçiniz:</p>
+                    <input type="file" name="photo" multiple="multiple" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,34 @@
+﻿@model ETicaret.Areas.Admin.Model.GalleryModel
+@{
+    ViewData["Title"] = "Liste";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Liste</h1>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>Id</td>
+        <td>UrunId</td>
+        <td>Image</td>
+    </tr>
+
+    @foreach (var item in Model.Glist)
+    {
+    <tr>
+        <td>@item.imageId</td>
+        <td>@item.productId</td>
+        @if (item.image == null)
+        {
+        <td><a href="/Admin/Gallery/EkleCoklu/@item.productId"> Ekle</a></td>
+        }
+        else
+        {
+            <td><img src="/@item.image" height="50" width="50" /></td>
+        }
+
+    </tr>
+    }
+</table>
+@Html.ActionLink("EkleCoklu", "EkleCoklu")
+
+
